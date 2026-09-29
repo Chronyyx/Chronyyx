@@ -14,7 +14,6 @@ jobs:
           user: Chronyyx
           template: classic
           base: header, repositories
-          config_display: columns
           plugin_languages: yes
           plugin_languages_sections: most-used
           plugin_languages_details: percentage
