@@ -26,7 +26,7 @@ IoT with Raspberry Pi
 
 ## 📊 GitHub Stats
 
-![Metrics](/github-metrics.svg)
+![GitHub Stats](./profile/stats.svg)
 
 ![GitHub Streak](https://streak-stats.demolab.com/?user=Chronyyx&theme=github-dark-blue&hide_border=true)
 
