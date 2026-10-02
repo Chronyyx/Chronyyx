@@ -1,24 +1,30 @@
 name: Stats card
+
 on:
   schedule: [{ cron: "0 0 * * *" }]
   workflow_dispatch:
   push: { branches: [main] }
+
 jobs:
   stats:
     runs-on: ubuntu-latest
-    permissions: { contents: write }
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
+
       - uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
           options: username=Chronyyx&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true
           path: profile/stats.svg
           token: ${{ secrets.METRICS_TOKEN }}
+
       - name: Commit card
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/*.svg
           git commit -m "Update stats card [skip ci]" || exit 0
-          git push
+          git pull --rebase origin main
+          git push origin main
